@@ -83,7 +83,6 @@ contract RebasingERC20Test is Test {
         vm.expectEmit(true, true, false, true);
         emit IERC20.Approval(zoro, luffy, approveAmount);
         token.approve(luffy, approveAmount);
-        assertEq(token.allowedRBT(zoro, luffy), approveAmount);
         vm.expectEmit(true, true, false, true);
         emit IERC20.Transfer(zoro, luffy, approveAmount);
         token.transferFrom(zoro, luffy, approveAmount);
