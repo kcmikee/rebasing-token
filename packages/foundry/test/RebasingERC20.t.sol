@@ -194,7 +194,7 @@ contract RebasingERC20Test is Test {
         assertEq(token.balanceOf(zoro), zoroBalanceBefore2 + transferAmount);
     }
 
-    function testFailTransferInsufficientBalance() public {
+    function testTransferInsufficientBalance() public {
         // User tries to transfer more tokens than they have
         vm.prank(zoro);
         vm.expectRevert();
