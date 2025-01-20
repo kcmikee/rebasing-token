@@ -196,9 +196,10 @@ contract RebasingERC20Test is Test {
 
     function testTransferInsufficientBalance() public {
         // User tries to transfer more tokens than they have
-        vm.prank(zoro);
+        vm.startPrank(zoro);
+        uint doubleBalance = token.balanceOf(zoro) * 2;
         vm.expectRevert();
-        token.transfer(luffy, 2000 * 10 ** token.decimals());
+        token.transfer(luffy, doubleBalance);
     }
 
     function testRebaseNotOwner() public {
